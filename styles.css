@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+section {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#selectionBox {
+    margin: 0;
+    padding: 0;
+    border: solid 1px black;
+    width: 50vw;
+    height: 95%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+}
+
+#selectionBar {
+    width: 100%;
+    border: solid 1px black;
+    display: flex;
+}
+
+#colorSelectedBox {
+    flex: 5;
+    height: 100%;
+    display: flex;
+    border: solid 1px black;
+}
+
+.colorBoxChoice {
+    flex: 1;
+    margin: 8px 25px;
+    border: solid 1px black;
+}
+
+#resetButtonBox {
+    flex: 1;
+    border: solid 1px black;
+    display: flex;
+    justify-content: center;
+}
+
+#resetButtonBox :first-child {
+    margin: 10px;
+}
+
+#historyBox {
+    height: 100%;
+    width: 100%;
+    border: solid 1px black;
+    display: flex;
+}
+
+#colorsTryBox {
+    flex: 5;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#clueBallsBox {
+    flex: 1;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+
+
+#colorSelectionBox {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.colorButton {
+    width: 75px;
+    height: 75px;
+    margin: 0px 10px;
+    border: solid 1px black;
+    cursor: pointer;
+    border-radius: 100%;
+}
+
+#redButton {
+    background-color: red;
+}
+
+#blueButton {
+    background-color: blue;
+}
+
+#yellowButton {
+    background-color: yellow;
+}
+
+#greenButton {
+    background-color: green;
+}
+
+#pinkButton {
+    background-color: pink;
+}
+
+#submitButtonBox {
+    width: 100vw;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#submitButtonBox input {
+    width: 100px;
+    height: 50px;
+}
