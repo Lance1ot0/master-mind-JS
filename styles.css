@@ -1,129 +1,131 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
+
+header {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    flex: 1;
+    margin-left: 20px;
+}
+
+header input {
+    padding: 0px 25px;
+    height: 0.5in;
+    margin-right: 20px;
+    text-transform: uppercase;
+    border-radius: 35px;
+    border: none;
+    color: white;
+    background-color: #0D1821;
+    cursor: pointer;
+}
+
 
 section {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 70vh;
+    width: 100%;
+    height: 80vh;
+}
+
+#board-game {
+    height: 100%;
+    margin: 0px 20px;
+    background-color: #EAEBEA;
+    box-shadow: 2px 2px 2px #CBCDCB;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+#color-display-container {
+    flex: 9;
+}
+
+
+#selection-color-container {
+    flex: 1;
+    margin: 0px 15px;
+    border-top: solid 2px #B6B9B6;
+    display: flex;
     align-items: center;
 }
 
-#selectionBox {
-    margin: 0;
-    padding: 0;
-    border: solid 1px black;
-    width: 50vw;
-    height: 95%;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-end;
-}
-
-#selectionBar {
-    width: 100%;
-    border: solid 1px black;
-    display: flex;
-}
-
-#colorSelectedBox {
-    flex: 5;
+#selection-color-container div {
+    flex: 1;
     height: 100%;
     display: flex;
-    border: solid 1px black;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.colorBoxChoice {
-    flex: 1;
-    margin: 8px 25px;
-    border: solid 1px black;
-}
-
-#resetButtonBox {
-    flex: 1;
-    border: solid 1px black;
-    display: flex;
-    justify-content: center;
-}
-
-#resetButtonBox :first-child {
-    margin: 10px;
-}
-
-#historyBox {
-    height: 100%;
-    width: 100%;
-    border: solid 1px black;
-    display: flex;
-}
-
-#colorsTryBox {
-    flex: 5;
-    border: solid 1px black;
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-#clueBallsBox {
-    flex: 1;
-    border: solid 1px black;
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-
-
-#colorSelectionBox {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    
-}
-
-.colorButton {
-    width: 75px;
-    height: 75px;
-    margin: 0px 10px;
-    border: solid 1px black;
-    cursor: pointer;
+#selection-color-container div input {
     border-radius: 100%;
+    border: none;
+    background-color: aqua;
+    width: 0.5in;
+    height: 0.5in;
+    cursor: pointer;
 }
 
-#redButton {
-    background-color: red;
+#submit-btn {
+    margin: 0px 5px;
+    padding: 0px 15px;
+    height: 0.4in;
+    text-transform: uppercase;
+    border-radius: 35px;
+    border: solid 1px black;
+    font-size: 0.8em;
+    cursor: pointer;
 }
 
-#blueButton {
-    background-color: blue;
-}
-
-#yellowButton {
-    background-color: yellow;
-}
-
-#greenButton {
-    background-color: green;
-}
-
-#pinkButton {
-    background-color: pink;
-}
-
-#submitButtonBox {
-    width: 100vw;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#submit-btn:hover {
+    background-color: #0D1821;
+    color: white;
 }
 
 
-#submitButtonBox input {
-    width: 100px;
-    height: 50px;
+
+
+@media screen and (max-width: 450px)
+{
+    header {
+        flex-direction: column;
+    }
+
+    h1 {
+        margin: 10px 0px;
+    }
+    
+    header input {
+        margin: 0px 0px 15px 0px;
+    }
+
+    #selection-color-container {
+        flex-direction: column;
+    }
+
+    #selection-color-container div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+
+    #submit-btn {
+        font-size: 0.6em;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        height: 0.3in;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+
 }

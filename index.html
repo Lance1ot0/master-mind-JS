@@ -6,51 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MasterMind</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <header>
+        <h1>MASTERMIND</h1>
+        <input type="button" value="New Game">
+    </header>
     
+
     <section>
-        <div id="selectionBox">
-
-            <div id="selectionBar">
-                <div id="colorSelectedBox">
-                    <div class="colorBoxChoice"></div>
-                    <div class="colorBoxChoice"></div>
-                    <div class="colorBoxChoice"></div>
-                    <div class="colorBoxChoice"></div>
-                </div>
-    
-                <div id="resetButtonBox">
-                    <input type="button" value="Reset Colors">
-                </div>
+        <div id="board-game">
+            <div id="color-display-container">
             </div>
 
-            <div id="historyBox">
-                <div id="colorsTryBox">
-            
+            <div id="selection-color-container">
+                <div>
+                    <input type="button" value="R">
+                    <input type="button" value="O">
+                    <input type="button" value="Y">
+                    <input type="button" value="G">
+                    <input type="button" value="B">
                 </div>
-    
-                <div id="clueBallsBox">
-                
-                </div>
+
+                <input id="submit-btn" type="button" value="SUBMIT">
             </div>
-            
         </div>
-
-        
     </section>
-
-    <div id="colorSelectionBox">
-        <input type="button" value="" class="colorButton" id="redButton">
-        <input type="button" value="" class="colorButton" id="blueButton">
-        <input type="button" value="" class="colorButton" id="yellowButton">
-        <input type="button" value="" class="colorButton" id="greenButton">
-        <input type="button" value="" class="colorButton" id="pinkButton">
-    </div>
-    
-    <div id="submitButtonBox">
-        <input type="submit" value="Valider">
-    </div>
 
     <script src="app.js"></script>
 </body>
