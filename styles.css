@@ -8,10 +8,10 @@ header {
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 h1 {
-    flex: 1;
     margin-left: 20px;
 }
 
@@ -36,19 +36,20 @@ section {
 #board-game {
     height: 100%;
     margin: 0px 20px;
-    background-color: #EAEBEA;
-    box-shadow: 2px 2px 2px #CBCDCB;
+    background-color: #E0E1E1;
+    box-shadow: 3px 3px 3px #AAADB1;
     display: flex;
     flex-direction: column;
 }
 
 #color-display-container {
     flex: 9;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 
 #selection-color-container {
-    flex: 1;
     margin: 0px 15px;
     border-top: solid 2px #B6B9B6;
     display: flex;
@@ -66,10 +67,14 @@ section {
 #selection-color-container div input {
     border-radius: 100%;
     border: none;
-    background-color: aqua;
     width: 0.5in;
     height: 0.5in;
+    margin: 4px 0px; 
     cursor: pointer;
+}
+
+#selection-color-container div input:hover {
+    border: solid 4px #F5F5F5;
 }
 
 #submit-btn {
@@ -81,6 +86,7 @@ section {
     border: solid 1px black;
     font-size: 0.8em;
     cursor: pointer;
+    background-color: #E0E1E1;
 }
 
 #submit-btn:hover {
@@ -91,7 +97,27 @@ section {
 
 
 
-@media screen and (max-width: 450px)
+
+@media screen and (min-width: 850px) {
+
+    #selection-color-container div {
+        flex: 5;
+    }
+
+    #selection-color-container div input {
+        width: 0.7in;
+        height: 0.7in;
+        margin: 8px 0px; 
+    }
+
+    #submit-btn {
+        flex: 1;
+        font-size: 1em;
+    }
+}
+
+
+@media screen and (max-width: 500px)
 {
     header {
         flex-direction: column;
@@ -103,6 +129,8 @@ section {
     
     header input {
         margin: 0px 0px 15px 0px;
+        height: 0.4in;
+
     }
 
     #selection-color-container {
@@ -126,6 +154,11 @@ section {
 }
 
 
-@media screen and (max-width: 1024px) {
-
+@media screen and (max-width: 350px)
+{
+    #selection-color-container div input {
+        width: 0.35in;
+        height: 0.35in;
+    }
 }
+
