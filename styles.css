@@ -5,7 +5,7 @@ body {
 }
 
 header {
-    height: 100%;
+    height: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -43,14 +43,14 @@ section {
 }
 
 #color-display-container {
-    flex: 9;
+    flex: 1;
     display: flex;
     flex-direction: column-reverse;
 }
 
 
 #selection-color-container {
-    margin: 0px 15px;
+    margin: 0px 130px;
     border-top: solid 2px #B6B9B6;
     display: flex;
     align-items: center;
@@ -67,9 +67,9 @@ section {
 #selection-color-container div input {
     border-radius: 100%;
     border: none;
-    width: 0.5in;
-    height: 0.5in;
-    margin: 4px 0px; 
+    width: 0.7in;
+    height: 0.7in;
+    margin: 8px 0px; 
     cursor: pointer;
 }
 
@@ -79,7 +79,7 @@ section {
 
 #submit-btn {
     margin: 0px 5px;
-    padding: 0px 15px;
+    padding: 0px 35px;
     height: 0.4in;
     text-transform: uppercase;
     border-radius: 35px;
@@ -95,29 +95,64 @@ section {
 }
 
 
+#sub-selection-container {
+    display: flex;
+    justify-content: flex-end;
+}
 
+#sub-selection-container div {
+    width: 0.5in;
+    height: 0.4in;
+    border-radius: 0% 0% 100% 100%;
+    background-color: #E0E1E1;
+    box-shadow: 3px 3px 3px #AAADB1;
+    transform: translateY(-1px);
+}
 
+#sub-selection-container input {
+    margin-right: 20px;
+    margin-left: 10px;
+    padding: 0px 10px;
+    height: 0.4in;
+    text-transform: uppercase;
+    border-radius: 0 0 15px 15px;
+    border: none;
+    font-size: 0.8em;
+    cursor: pointer;
+    background-color: #E0E1E1;
+    box-shadow: 3px 3px 3px #AAADB1;
+    transform: translateY(-1px);
+}
 
-@media screen and (min-width: 850px) {
+@media screen and (max-width: 820px) {
+
+    #selection-color-container {
+        flex-direction: column;
+    }
 
     #selection-color-container div {
-        flex: 5;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 10px;
     }
 
     #selection-color-container div input {
-        width: 0.7in;
-        height: 0.7in;
-        margin: 8px 0px; 
+        width: 0.5in;
+        height: 0.5in;
     }
 
     #submit-btn {
-        flex: 1;
-        font-size: 1em;
+        font-size: 0.7em;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        height: 0.4in;
     }
 }
 
 
-@media screen and (max-width: 500px)
+@media screen and (max-width: 520px)
 {
     header {
         flex-direction: column;
@@ -132,30 +167,16 @@ section {
         height: 0.4in;
 
     }
-
-    #selection-color-container {
-        flex-direction: column;
-    }
-
-    #selection-color-container div {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        margin-top: 10px;
-    }
-
-    #submit-btn {
-        font-size: 0.6em;
-        margin-top: 20px;
-        margin-bottom: 5px;
-        height: 0.3in;
-    }
 }
 
 
-@media screen and (max-width: 350px)
+@media screen and (max-width: 420px)
 {
+
+    #selection-color-container {
+        margin: 0px 40px;
+    }
+
     #selection-color-container div input {
         width: 0.35in;
         height: 0.35in;

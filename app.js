@@ -39,7 +39,7 @@ function initColorBoard(){
 
 
         let numberDiv = document.createElement("div");
-        numberDiv.style.flex = 3;
+        numberDiv.style.flex = 2;
         numberDiv.style.display = "flex";
         numberDiv.style.justifyContent = "center";
         let numberP = document.createElement("p");
@@ -78,22 +78,42 @@ function initColorBoard(){
 
 
         let clueBallsDiv = document.createElement("div");
-        clueBallsDiv.style.flex = 5;
+        clueBallsDiv.style.flex = 2;
         clueBallsDiv.style.display = "flex";
-        clueBallsDiv.style.alignItems = "center";
-        clueBallsDiv.style.justifyContent = "space-around";
+        clueBallsDiv.style.justifyContent = "center";
+        clueBallsDiv.style.flexDirection = "column";
+
+        let clueBallRowA = document.createElement("div");
+        clueBallRowA.style.marginBottom = "3px";
+        clueBallRowA.style.display = "flex";
+        clueBallRowA.style.justifyContent = "space-around";
+
+        let clueBallRowB = document.createElement("div");
+        clueBallRowB.style.marginTop = "3px";
+        clueBallRowB.style.display = "flex";
+        clueBallRowB.style.justifyContent = "space-around";
 
         for(let i = 0; i < 4; i++)
         {
+            
             let clueBall = document.createElement("div");
             clueBall.style.width = "10px";
             clueBall.style.height = "10px";
             clueBall.style.borderRadius = "100%";
             clueBall.style.backgroundColor = "white";
 
-            clueBallsDiv.appendChild(clueBall);
+            if (i < 2) 
+            {
+                clueBallRowA.appendChild(clueBall);
+            }
+            else
+            {
+                clueBallRowB.appendChild(clueBall);
+            }
         }
         
+        clueBallsDiv.appendChild(clueBallRowA);
+        clueBallsDiv.appendChild(clueBallRowB);
 
         rowSequenceContainer.appendChild(clueBallsDiv);
 
@@ -112,11 +132,3 @@ function initColorBoard(){
 initColorBoard();
 
 console.log(colorSequenceBoard);
-
-
-
-function submitBtnValidate(){
-    alert("validate");
-}
-
-submitBtn.onclick = submitBtnValidate;
