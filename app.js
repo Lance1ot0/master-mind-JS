@@ -287,6 +287,7 @@ function restartGame(){
     gameTurnColumn = 0;
     colorSequenceRow = [];
     numberTurnLeft = 10;
+    gameWin = false;
     numberTurnDiv.innerHTML = numberTurnLeft;
 
     for(let j = 0; j < colorSequenceBoard.length; j++)
