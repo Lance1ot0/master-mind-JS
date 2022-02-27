@@ -1,6 +1,8 @@
 # MasterMind JS School Project
 This is the first JS, Html & CSS project that i made for school
 
+<a href="https://lance1ot0.github.io/master-mind-JS/">Test here </a>
+
 ## Objectives
 Build a MasterMind, the computer randomly pull 4 colors and the player try to find the sequence of colors
 
@@ -16,8 +18,8 @@ determine the number of well-placed colors and misplaced colors
 
 -The computer must be able to provide the result of the comparison to the user
 
--The computer must be able to declare the user's victory,
-Colors are represented by a letter
+-The computer must be able to declare the user's victory
+
 ```
 
 ## Bonus Features
@@ -29,10 +31,12 @@ Colors are represented by a letter
 -Use buttons to build the user's sequence (and allow to
 empty the sequence)
 
--Calculate the number of tries before finding,
-Add a button to start a new game
+-Calculate the number of tries before finding
+
+-Add a button to start a new game
 
 -Add a day/night mode
 
 -Build a game board
-Make the page responsive to be able to play on smartphone
+
+-Make the page responsive to be able to play on smartphone
