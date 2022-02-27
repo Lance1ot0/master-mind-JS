@@ -33,7 +33,7 @@ function colorSequenceOrderVerif(playerColors, computerColors) {
     return colorRightPosition;
 }
 
-function colorPlayerInSequenceVerif(playerColors, computerColors){
+function colorInComputerSequenceVerif(playerColors, computerColors){
     let sequanceVerifArray = [...computerColors]
 
     for (let i = 0; i < 4; i++)
@@ -47,8 +47,7 @@ function colorPlayerInSequenceVerif(playerColors, computerColors){
             }
         }
     }
-    console.log(sequanceVerifArray);
-    return sequanceVerifArray
+    return  (4 - sequanceVerifArray.length)
 
 }
 
@@ -60,7 +59,8 @@ const colors = {"pink":"#EF065B",
                 "yellow":"#FAD038",
                 "green":"#92D784",
                 "blue":"#3993DD",
-                "ballsColor": "#999999"};
+                "ballsColor": "#999999",
+                "clueBallColor": "#413E39"};
 
 
 const pinkBtn = document.querySelector("#selection-color-container div :nth-child(1)");
@@ -80,6 +80,7 @@ blueBtn.style.backgroundColor = colors["blue"];
 
 
 let colorSequenceBoard = [];
+let clueBallsGlobalArray = [];
 
 function initColorBoard(){
 
@@ -142,13 +143,15 @@ function initColorBoard(){
         clueBallRowA.style.marginBottom = "3px";
         clueBallRowA.style.marginRight = "3px";
         clueBallRowA.style.display = "flex";
-        clueBallRowA.style.justifyContent = "space-around";
+        clueBallRowA.style.justifyContent = "center";
 
         let clueBallRowB = document.createElement("div");
         clueBallRowB.style.marginTop = "3px";
         clueBallRowB.style.marginRight = "3px";
         clueBallRowB.style.display = "flex";
-        clueBallRowB.style.justifyContent = "space-around";
+        clueBallRowB.style.justifyContent = "center";
+
+        let clueBallsDivArray = [];
 
         for(let i = 0; i < 4; i++)
         {
@@ -157,7 +160,10 @@ function initColorBoard(){
             clueBall.style.width = "10px";
             clueBall.style.height = "10px";
             clueBall.style.borderRadius = "100%";
-            clueBall.style.backgroundColor = "white";
+            clueBall.style.margin = "0px 4px";
+            clueBall.style.backgroundColor = colors["clueBallColor"];
+
+            clueBallsDivArray.push(clueBall);
 
             if (i < 2) 
             {
@@ -168,7 +174,10 @@ function initColorBoard(){
                 clueBallRowB.appendChild(clueBall);
             }
         }
+
+        clueBallsGlobalArray.push(clueBallsDivArray);
         
+
         clueBallsDiv.appendChild(clueBallRowA);
         clueBallsDiv.appendChild(clueBallRowB);
 
@@ -179,16 +188,13 @@ function initColorBoard(){
         rowNumber++;
     }
 
-    
-
-
-
 
 }
 
 initColorBoard();
 
 console.log(colorSequenceBoard);
+console.log(clueBallsGlobalArray);
 let numberTurnLeft = 10;
 numberTurnDiv.innerHTML = numberTurnLeft;
 
@@ -196,6 +202,7 @@ numberTurnDiv.innerHTML = numberTurnLeft;
 let gameTurnRow = 0;
 let gameTurnColumn = 0;
 let colorSequenceRow = [];
+let gameWin = false;
 
 function fillColorSelectionRow(bgColor, colorValue){
 
@@ -217,27 +224,63 @@ greenBtn.onclick = function(){fillColorSelectionRow(colors["green"], "G");};
 blueBtn.onclick = function(){fillColorSelectionRow(colors["blue"], "B");};
 
 function resetTurnRow(){
-    for(let i = 0; i < colorSequenceRow.length; i++)
+    if(!gameWin)
     {
-        colorSequenceBoard[gameTurnRow][i].style.backgroundColor = colors["ballsColor"];
+        for(let i = 0; i < colorSequenceRow.length; i++)
+        {
+            colorSequenceBoard[gameTurnRow][i].style.backgroundColor = colors["ballsColor"];
+        }
+        gameTurnColumn = 0;
+        colorSequenceRow = [];
     }
-    gameTurnColumn = 0;
-    colorSequenceRow = [];
+    
 }
 
 resetBtn.onclick = resetTurnRow;
 
 function submitRowSequence(){
 
-    if(colorSequenceRow.length == 4)
+    if(colorSequenceRow.length == 4 && !gameWin)
     {
         let numberOfColorsInPosition = colorSequenceOrderVerif(colorSequenceRow, computerSequence)
-        console.log(numberOfColorsInPosition);
-        gameTurnRow++;
-        gameTurnColumn = 0;
-        colorSequenceRow = [];
-        numberTurnLeft--;
-        numberTurnDiv.innerHTML = numberTurnLeft;
+        console.log("Nombre de couleur a la bonne position " + numberOfColorsInPosition);
+
+        let numberOfColorsInSequence = colorInComputerSequenceVerif(colorSequenceRow, computerSequence)
+        console.log("Nombre de couleur correct " + numberOfColorsInSequence);
+
+        console.log("Nombre de couleur uniquement correct " + (numberOfColorsInSequence - numberOfColorsInPosition));
+
+        let clueBallNumber = 0;
+
+        while(clueBallNumber < numberOfColorsInPosition + (numberOfColorsInSequence - numberOfColorsInPosition))
+        {
+            if(numberOfColorsInPosition > clueBallNumber)
+            {
+                clueBallsGlobalArray[gameTurnRow][clueBallNumber].style.backgroundColor = "#D02541";
+            }
+            else if(numberOfColorsInPosition < numberOfColorsInSequence)
+            {
+                clueBallsGlobalArray[gameTurnRow][clueBallNumber].style.backgroundColor = "white";
+            }
+
+            clueBallNumber++;
+            
+        }
+        
+
+        if(numberOfColorsInPosition == 4)
+        {
+            alert("C'est Win quoi");
+            gameWin = true;
+        }
+        else
+        {
+            gameTurnRow++;
+            gameTurnColumn = 0;
+            colorSequenceRow = [];
+            numberTurnLeft--;
+            numberTurnDiv.innerHTML = numberTurnLeft;
+        }
     }
     
 }
