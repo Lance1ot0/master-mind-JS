@@ -43,20 +43,21 @@ function colorSequenceOrderVerif(playerColors, computerColors) {
 
 // Compare player and computer sequence order
 function colorInComputerSequenceVerif(playerColors, computerColors){
-    let sequanceVerifArray = [...computerColors]
+    let sequanceVerifArray = []
 
     for (let i = 0; i < 4; i++)
     {
         for (let j = 0; j < 4; j++)
         {
-            if(playerColors[i] == sequanceVerifArray[j])
+            if(playerColors[i] == computerColors[j])
             {
-                sequanceVerifArray.splice(j, 1);
+                sequanceVerifArray.push(true);
                 j++;
             }
         }
     }
-    return  (4 - sequanceVerifArray.length)
+    console.log(sequanceVerifArray);
+    return  (sequanceVerifArray.length)
 
 }
 
