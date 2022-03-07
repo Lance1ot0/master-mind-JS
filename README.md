@@ -8,35 +8,35 @@ Build a MasterMind, the computer randomly pull 4 colors and the player try to fi
 
 ## Minimum required
 ```
--The computer must find a random sequence of 4 colors (which can be
+- The computer must find a random sequence of 4 colors (which can be
 repeat) from a choice of 5 different colors
 
--The user must be able to propose a sequence of 4 colors
+- The user must be able to propose a sequence of 4 colors
 
--The computer must be able to compare its sequence to that of the user to
+- The computer must be able to compare its sequence to that of the user to
 determine the number of well-placed colors and misplaced colors
 
--The computer must be able to provide the result of the comparison to the user
+- The computer must be able to provide the result of the comparison to the user
 
--The computer must be able to declare the user's victory
+- The computer must be able to declare the user's victory
 
 ```
 
 ## Bonus Features
 ```
--Use color blocks to represent the sequence
+- Use colors to represent the sequence
 
--Limit to 10 tries for the user
+- Limit to 10 tries for the user
 
--Use buttons to build the user's sequence (and allow to
+- Use buttons to build the user's sequence (and allow to
 empty the sequence)
 
--Calculate the number of tries before finding
+- Calculate the number of tries before finding
 
--Add a button to start a new game
+- Add a button to start a new game
 
--Add a day/night mode
+- Add a dark/light mode 
 
--Build a game board
+- Build a game board
 
--Make the page responsive to be able to play on smartphone
+- Make the page responsive to be able to play on smartphone
