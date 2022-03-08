@@ -1,4 +1,4 @@
-const colorsArray = ["B", "P", "G", "Y", "O"];
+const colorsArray = ["blue", "pink", "green", "yellow", "orange"];
 
 const colors = {"pink":"#EF065B",
                 "orange":"#F8763A",
@@ -49,10 +49,11 @@ function colorInComputerSequenceVerif(playerColors, computerColors){
     {
         for (let j = 0; j < 4; j++)
         {
-            if(playerColors[i] == computerColors[j])
+            if(playerColors[j] == computerColors[i])
             {
-                sequanceVerifArray.push(true);
-                j++;
+                sequanceVerifArray.push(playerColors[j]);
+                i++;
+                j = 0;
             }
         }
     }
@@ -61,6 +62,9 @@ function colorInComputerSequenceVerif(playerColors, computerColors){
 
 }
 
+
+const endblurDiv = document.querySelector("#endblurDisplay");
+const endGametxt = document.querySelector("#endblurDisplay div span");
 const colorSequenceContainer = document.querySelector("#color-display-container");
 
 const numberTurnDiv = document.querySelector("#sub-selection-container div p");
@@ -230,6 +234,11 @@ function resetTurnRow(){
     
 }
 
+function endGameDisplay(text){
+    endblurDiv.style.display = "flex";
+    endGametxt.innerHTML = text;
+}
+
 function submitRowSequence(){
 
     if(colorSequenceRow.length == 4 && !gameWin)
@@ -264,10 +273,14 @@ function submitRowSequence(){
             
         }
         
+        if(numberTurnLeft == 0)
+        {
+            endGameDisplay("You loos !");
+        }
 
         if(numberOfColorsInPosition == 4)
         {
-            alert("C'est Win quoi");
+            endGameDisplay("You win !");
             gameWin = true;
         }
         else
@@ -290,6 +303,7 @@ function restartGame(){
     numberTurnLeft = 10;
     gameWin = false;
     numberTurnDiv.innerHTML = numberTurnLeft;
+    endblurDiv.style.display = "none";
 
     for(let j = 0; j < colorSequenceBoard.length; j++)
     {
@@ -302,11 +316,11 @@ function restartGame(){
     
 }
 
-pinkBtn.onclick = function(){fillColorSelectionRow(colors["pink"], "P");};
-orangeBtn.onclick = function(){fillColorSelectionRow(colors["orange"], "O");};
-yellowBtn.onclick = function(){fillColorSelectionRow(colors["yellow"], "Y");};
-greenBtn.onclick = function(){fillColorSelectionRow(colors["green"], "G");};
-blueBtn.onclick = function(){fillColorSelectionRow(colors["blue"], "B");};
+pinkBtn.onclick = function(){fillColorSelectionRow(colors["pink"], "pink");};
+orangeBtn.onclick = function(){fillColorSelectionRow(colors["orange"], "orange");};
+yellowBtn.onclick = function(){fillColorSelectionRow(colors["yellow"], "yellow");};
+greenBtn.onclick = function(){fillColorSelectionRow(colors["green"], "green");};
+blueBtn.onclick = function(){fillColorSelectionRow(colors["blue"], "blue");};
 
 newGameBtn.onclick = restartGame;
 resetBtn.onclick = resetTurnRow;
@@ -318,4 +332,3 @@ let computerSequence = randomSequenceColor();
 
 // Logs for verification
 console.log("Computer sequence :" + computerSequence);
-
