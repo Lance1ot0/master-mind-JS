@@ -30,7 +30,6 @@ function colorSequenceOrderVerif(playerColors, computerColors) {
 
     for (let i = 0; i < 4; i++)
     {
-        console.log(playerColors[i] + " " + computerColors[i]);
 
         if(playerColors[i] == computerColors[i])
         {
@@ -43,23 +42,21 @@ function colorSequenceOrderVerif(playerColors, computerColors) {
 
 // Compare player and computer sequence order
 function colorInComputerSequenceVerif(playerColors, computerColors){
-    let sequanceVerifArray = []
 
-    for (let i = 0; i < 4; i++)
+    let computerColorsCopy = [...computerColors];
+
+    for(let i = 0; i < 4; i++)
     {
-        for (let j = 0; j < 4; j++)
+        if(computerColorsCopy.indexOf(playerColors[i]) != -1)
         {
-            if(playerColors[j] == computerColors[i])
-            {
-                sequanceVerifArray.push(playerColors[j]);
-                i++;
-                j = 0;
-            }
-        }
-    }
-    console.log(sequanceVerifArray);
-    return  (sequanceVerifArray.length)
+            console.log("La couleur : " + playerColors[i], "est dans la séquence ordi");
 
+            computerColorsCopy.splice(computerColorsCopy.indexOf(playerColors[i]), 1);
+            console.log(computerColorsCopy);
+        } 
+    }
+
+    return 4 - computerColorsCopy.length;
 }
 
 
@@ -216,7 +213,6 @@ function fillColorSelectionRow(bgColor, colorValue){
 
         colorSequenceRow.push(colorValue);
         gameTurnColumn++;
-        console.log(colorSequenceRow);
     }
     
 }
@@ -246,8 +242,6 @@ function submitRowSequence(){
         numberTurnLeft--;
         numberTurnDiv.innerHTML = numberTurnLeft;
 
-        console.log("Computer sequence :" + computerSequence);
-
         let numberOfColorsInPosition = colorSequenceOrderVerif(colorSequenceRow, computerSequence)
         console.log("Nombre de couleur a la bonne position " + numberOfColorsInPosition);
 
@@ -275,12 +269,12 @@ function submitRowSequence(){
         
         if(numberTurnLeft == 0)
         {
-            endGameDisplay("You loos !");
+            endGameDisplay("You lost!");
         }
 
         if(numberOfColorsInPosition == 4)
         {
-            endGameDisplay("You win !");
+            endGameDisplay("You win!");
             gameWin = true;
         }
         else
