@@ -62,6 +62,8 @@ function colorInComputerSequenceVerif(playerColors, computerColors){
 
 const endblurDiv = document.querySelector("#endblurDisplay");
 const endGametxt = document.querySelector("#endblurDisplay div span");
+const solutionBalls = document.querySelectorAll(".solution-ball");
+
 const colorSequenceContainer = document.querySelector("#color-display-container");
 
 const numberTurnDiv = document.querySelector("#sub-selection-container div p");
@@ -199,7 +201,6 @@ function initColorBoard(){
 
 initColorBoard();
 
-
 let gameTurnRow = 0;
 let gameTurnColumn = 0;
 let colorSequenceRow = [];
@@ -233,6 +234,12 @@ function resetTurnRow(){
 function endGameDisplay(text){
     endblurDiv.style.display = "flex";
     endGametxt.innerHTML = text;
+
+    let i = 0;
+    solutionBalls.forEach(element => {
+        element.style.backgroundColor = colors[computerSequence[i]];
+        i++;
+    });
 }
 
 function submitRowSequence(){
