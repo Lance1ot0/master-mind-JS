@@ -66,7 +66,7 @@ const solutionBalls = document.querySelectorAll(".solution-ball");
 const colorSequenceContainer = document.querySelector("#color-display-container");
 
 const numberTurnDiv = document.querySelector("#sub-selection-container div p");
-numberTurnDiv.innerHTML = numberTurnLeft;
+numberTurnDiv.textContent = numberTurnLeft;
 
 // Get all color buttons
 const colorBtns = document.querySelectorAll("#selection-color-container div input");
@@ -102,7 +102,7 @@ function initColorBoard(){
         numberDiv.style.display = "flex";
         numberDiv.style.justifyContent = "center";
         let numberP = document.createElement("p");
-        numberP.innerHTML = rowNumber;
+        numberP.textContent = rowNumber;
         numberDiv.appendChild(numberP);
 
 
@@ -228,7 +228,7 @@ function resetTurnRow(){
 
 function endGameDisplay(text){
     endblurDiv.style.display = "flex";
-    endGametxt.innerHTML = text;
+    endGametxt.textContent = text;
 
     let i = 0;
     solutionBalls.forEach(element => {
@@ -242,7 +242,7 @@ function submitRowSequence(){
     if(colorSequenceRow.length == 4 && !gameWin)
     {
         numberTurnLeft--;
-        numberTurnDiv.innerHTML = numberTurnLeft;
+        numberTurnDiv.textContent = numberTurnLeft;
 
         let numberOfColorsInPosition = colorSequenceOrderVerif(colorSequenceRow, computerSequence)
         console.log("Nombre de couleur a la bonne position " + numberOfColorsInPosition);
@@ -298,7 +298,7 @@ function restartGame(){
     colorSequenceRow = [];
     numberTurnLeft = 10;
     gameWin = false;
-    numberTurnDiv.innerHTML = numberTurnLeft;
+    numberTurnDiv.textContent = numberTurnLeft;
     endblurDiv.style.display = "none";
 
     for(let j = 0; j < colorSequenceBoard.length; j++)
