@@ -1,4 +1,4 @@
-const colorsArray = ["blue", "pink", "green", "yellow", "orange"];
+const colorsArray = ["pink", "orange", "yellow", "green", "blue"];
 
 const colors = {"pink":"#EF065B",
                 "orange":"#F8763A",
@@ -9,7 +9,6 @@ const colors = {"pink":"#EF065B",
                 "clueBallColor": "#413E39"};
 
 let numberTurnLeft = 10;
-
 
 // Generates a sequence of 4 random colors
 function randomSequenceColor() {
@@ -69,22 +68,18 @@ const colorSequenceContainer = document.querySelector("#color-display-container"
 const numberTurnDiv = document.querySelector("#sub-selection-container div p");
 numberTurnDiv.innerHTML = numberTurnLeft;
 
+// Get all color buttons
+const colorBtns = document.querySelectorAll("#selection-color-container div input");
 
-const pinkBtn = document.querySelector("#selection-color-container div :nth-child(1)");
-const orangeBtn = document.querySelector("#selection-color-container div :nth-child(2)");
-const yellowBtn = document.querySelector("#selection-color-container div :nth-child(3)");
-const greenBtn = document.querySelector("#selection-color-container div :nth-child(4)");
-const blueBtn = document.querySelector("#selection-color-container div :nth-child(5)");
+// attributes the colors of buttons in the DOM
+for(let i = 0; i < colorBtns.length; i++)
+{
+    colorBtns[i].style.backgroundColor = colors[colorsArray[i]];
+}
 
 const newGameBtn = document.querySelector("header input");
 const submitBtn = document.querySelector("#submit-btn");
 const resetBtn = document.querySelector("#sub-selection-container input");
-
-pinkBtn.style.backgroundColor = colors["pink"];
-orangeBtn.style.backgroundColor = colors["orange"];
-yellowBtn.style.backgroundColor = colors["yellow"];
-greenBtn.style.backgroundColor = colors["green"];
-blueBtn.style.backgroundColor = colors["blue"];
 
 
 let colorSequenceBoard = [];
@@ -317,11 +312,11 @@ function restartGame(){
     
 }
 
-pinkBtn.onclick = function(){fillColorSelectionRow(colors["pink"], "pink");};
-orangeBtn.onclick = function(){fillColorSelectionRow(colors["orange"], "orange");};
-yellowBtn.onclick = function(){fillColorSelectionRow(colors["yellow"], "yellow");};
-greenBtn.onclick = function(){fillColorSelectionRow(colors["green"], "green");};
-blueBtn.onclick = function(){fillColorSelectionRow(colors["blue"], "blue");};
+colorBtns[0].onclick = () => {fillColorSelectionRow(colors["pink"], "pink");};
+colorBtns[1].onclick = () => {fillColorSelectionRow(colors["orange"], "orange");};
+colorBtns[2].onclick = () => {fillColorSelectionRow(colors["yellow"], "yellow");};
+colorBtns[3].onclick = () => {fillColorSelectionRow(colors["green"], "green");};
+colorBtns[4].onclick = () => {fillColorSelectionRow(colors["blue"], "blue");};
 
 newGameBtn.onclick = restartGame;
 resetBtn.onclick = resetTurnRow;
@@ -329,7 +324,6 @@ submitBtn.onclick = submitRowSequence;
 
 // Creating the computer color sequence
 let computerSequence = randomSequenceColor();
-
 
 // Logs for verification
 console.log("Computer sequence :" + computerSequence);

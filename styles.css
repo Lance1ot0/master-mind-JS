@@ -179,10 +179,16 @@ section {
 .solution-ball {
     width: 65px;
     height: 65px;
-    border-radius: 100%;
+    border-radius: 50%;
 }
 
 @media screen and (max-width: 820px) {
+
+    .solution-ball {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+    }
 
     #selection-color-container {
         flex-direction: column;
@@ -210,6 +216,16 @@ section {
 }
 
 @media screen and (max-width: 600px) {
+
+    #solution-container {
+        width: 75%;
+    }
+
+    .solution-ball {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
 
     #selection-color-container {
         margin: 0px 80px;
