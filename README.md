@@ -40,3 +40,7 @@ empty the sequence)
 - Build a game board
 
 - Make the page responsive to be able to play on smartphone
+
+<i>Overview</i>
+![z screen mastermind](https://user-images.githubusercontent.com/92601146/163157551-685be840-6fff-4e09-ba68-ecbaf4a3df25.png)
+![z screen mastermind 2](https://user-images.githubusercontent.com/92601146/163157591-417e1a09-8822-4e8a-bef8-c60e6f72a625.png)
